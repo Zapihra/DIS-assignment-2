@@ -1,4 +1,5 @@
 import postgresConnect as postgre
+import mongodbConnect as mongo
 
 def main():
     loop = True
@@ -28,6 +29,9 @@ def main():
 
             if (choise2 == 1):
                 postgre.postgreConnection()
+
+            elif (choise2 == 2):
+                mongo.mongodbConnection()
 
 
         elif(choise == 2):
