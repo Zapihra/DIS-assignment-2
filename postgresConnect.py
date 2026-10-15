@@ -33,3 +33,17 @@ def postgreRead(database):
     fetchInfo(conn, database)
 
     connectionClose(conn)
+
+def postgreWrite(database, info):
+    conn = connectionOpen(database)
+    cur = conn.cursor()
+    
+    if database == "owner":
+        cur.execute("INSERT INTO " + database + "s VALUES (%s, %s)", (info[0],info[1]))
+
+    elif database == "cat":
+        cur.execute("INSERT INTO " + database + "s VALUES (%s, %s, %s)", (info[0],info[1], info[2]))
+
+    conn.commit()
+    cur.close()
+    connectionClose(conn)

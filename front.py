@@ -46,13 +46,20 @@ def main():
             choise2 = int(input())
 
             if (choise2 == 1):
-                postgre.postgreConnection("owner")
+                name = input("Owner name: ")
+                email = input("Email: ")
+
+                postgre.postgreWrite("owner", [name, email])
 
             elif (choise2 == 2):
                 mongo.mongodbConnection()
 
             elif (choise2 == 3):
-                postgre.postgreConnection("cat")
+                name = input("Cat name: ")
+                breed = input("Cat breed: ")
+                age = int(input("Cat's age: "))
+
+                postgre.postgreWrite("cat", [name, breed, age])
             
 
         elif(choise == 3):
