@@ -1,3 +1,5 @@
+import postgresConnect as postgre
+
 def main():
     loop = True
     while(loop == True):
@@ -24,6 +26,10 @@ def main():
 
             choise2 = int(input())
 
+            if (choise2 == 1):
+                postgre.postgreConnection()
+
+
         elif(choise == 2):
             print("1) postgres")
             print("2) mongodb")
@@ -31,6 +37,7 @@ def main():
 
             print("Which database do you want to write to? ")
             choise2 = int(input())
+
 
         elif(choise == 3):
             print("1) postgres")
