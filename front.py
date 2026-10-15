@@ -19,35 +19,56 @@ def main():
            loop = False 
 
         elif (choise == 1):
-            print("1) postgres")
-            print("2) mongodb")
-            #
+            print("1) Owners")
+            print("2) Dogs")
+            print("3) Cats")
 
             print("Which database do you want to read from? ")
 
             choise2 = int(input())
 
             if (choise2 == 1):
-                postgre.postgreConnection()
+                postgre.postgreRead("owner")
 
             elif (choise2 == 2):
                 mongo.mongodbConnection()
 
+            elif (choise2 == 3):
+                postgre.postgreRead("cat")
+
 
         elif(choise == 2):
-            print("1) postgres")
-            print("2) mongodb")
-            #
+            print("1) Owners")
+            print("2) Dogs")
+            print("3) Cats")
 
             print("Which database do you want to write to? ")
             choise2 = int(input())
 
+            if (choise2 == 1):
+                postgre.postgreConnection("owner")
+
+            elif (choise2 == 2):
+                mongo.mongodbConnection()
+
+            elif (choise2 == 3):
+                postgre.postgreConnection("cat")
+            
 
         elif(choise == 3):
-            print("1) postgres")
-            print("2) mongodb")
-            #
+            print("1) Owners")
+            print("2) Dogs")
+            print("3) Cats")
 
             print("Which database do you want to modify? ")
             choise2 = int(input())
+
+            if (choise2 == 1):
+                postgre.postgreConnection("owner")
+
+            elif (choise2 == 2):
+                mongo.mongodbConnection()
+
+            elif (choise2 == 3):
+                postgre.postgreConnection("cat")
 main()

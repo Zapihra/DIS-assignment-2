@@ -1,21 +1,25 @@
 import psycopg2
 import sys
 
-def connectionOpen():
-    conn_string = "host='localhost' dbname='assignment2' user='postgres' password='Admin'"
+def connectionOpen(db):
+    conn_string = "host='localhost' dbname='"+db+"' user='postgres' password='Admin'"
 
-    conn = psycopg2.connect(conn_string)
+    try:
+        conn = psycopg2.connect(conn_string)
 
-    return conn
+        return conn
+
+    except Exception as e:
+        raise Exception(e)    
 
 def connectionClose(conn):
     
     conn.close()
 
-def fetchInfo(conn):
+def fetchInfo(conn, db):
     cursor = conn.cursor()
     
-    cursor.execute("SELECT * FROM users")
+    cursor.execute("SELECT * FROM public." + db + "s")
     
     records = cursor.fetchall()
     
@@ -23,9 +27,9 @@ def fetchInfo(conn):
     cursor.close()
         
 
-def postgreConnection():
-    conn = connectionOpen()
+def postgreRead(database):
 
-    fetchInfo(conn)
+    conn = connectionOpen(database)
+    fetchInfo(conn, database)
 
     connectionClose(conn)
