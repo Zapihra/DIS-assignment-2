@@ -15,6 +15,7 @@ def connectionOpen(db):
 def connectionClose(conn):
     
     conn.close()
+    return
 
 def fetchInfo(conn, db):
     cursor = conn.cursor()
@@ -25,6 +26,7 @@ def fetchInfo(conn, db):
     
     print(records)
     cursor.close()
+    return
         
 
 def postgreRead(database):
@@ -33,6 +35,7 @@ def postgreRead(database):
     fetchInfo(conn, database)
 
     connectionClose(conn)
+    return
 
 def postgreWrite(database, info):
     conn = connectionOpen(database)
@@ -47,3 +50,19 @@ def postgreWrite(database, info):
     conn.commit()
     cur.close()
     connectionClose(conn)
+    return
+
+def postgreUpdate(database, info):
+    conn = connectionOpen(database)
+    cur = conn.cursor()
+
+    if database == "owner":
+        cur.execute("UPDATE " + database +"s SET name = (%s), email = (%s) WHERE email = (%s)", (info[1], info[2], info[0]))
+
+    if database == "cat":
+        cur.execute("UPDATE " + database +"s SET name = (%s), breed = (%s), age = (%s) WHERE name = (%s) AND age = (%s)", (info[2], info[3], info[4], info[0], info[1]))
+
+    conn.commit()
+    cur.close()
+    connectionClose(conn)
+    return

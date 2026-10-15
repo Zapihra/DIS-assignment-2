@@ -3,8 +3,9 @@ import mongodbConnect as mongo
 
 def main():
     loop = True
+    print("Welcome to the assignment 2 code")
+
     while(loop == True):
-        print("Welcome to the assignment 2 code")
         print("What do you want to do?")
         print("1) Read from database")
         print("2) Write to database")
@@ -71,11 +72,27 @@ def main():
             choise2 = int(input())
 
             if (choise2 == 1):
-                postgre.postgreConnection("owner")
+                postgre.postgreRead("owner")
+
+                email = input("What is the email? ")
+                
+                newName = input("New name: ")
+                newEmail = input("New email: ")
+
+                postgre.postgreUpdate("owner", [email, newName, newEmail])
 
             elif (choise2 == 2):
                 mongo.mongodbConnection()
 
             elif (choise2 == 3):
-                postgre.postgreConnection("cat")
+                postgre.postgreRead("cat")
+
+                name = input("What is the cats name? ")
+                age = input("What is the cats age? ")
+
+                newName = input("New name: ")
+                newBreed = input("New breed: ")
+                newAge = input("New age: ")
+
+                postgre.postgreUpdate("cat", [name, age, newName, newBreed, newAge])
 main()
