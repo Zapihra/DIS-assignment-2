@@ -32,7 +32,7 @@ def main():
                 postgre.postgreRead("owner")
 
             elif (choise2 == 2):
-                mongo.mongodbConnection()
+                mongo.mongodbRead()
 
             elif (choise2 == 3):
                 postgre.postgreRead("cat")
@@ -53,11 +53,15 @@ def main():
                 postgre.postgreWrite("owner", [name, email])
 
             elif (choise2 == 2):
-                mongo.mongodbConnection()
+                name = input("Dog's name: ")
+                breed = input("Dog's breed: ")
+                age = int(input("Dog's age: "))
+
+                mongo.mongodbWrite([name, breed, age])
 
             elif (choise2 == 3):
-                name = input("Cat name: ")
-                breed = input("Cat breed: ")
+                name = input("Cat's name: ")
+                breed = input("Cat's breed: ")
                 age = int(input("Cat's age: "))
 
                 postgre.postgreWrite("cat", [name, breed, age])
@@ -82,7 +86,16 @@ def main():
                 postgre.postgreUpdate("owner", [email, newName, newEmail])
 
             elif (choise2 == 2):
-                mongo.mongodbConnection()
+                mongo.mongodbRead()
+                name = input("What is the dogs name? ")
+                age = int(input("What is the dogs age? "))
+
+                newName = input("New name: ")
+                newBreed = input("New breed: ")
+                newAge = int(input("New age: "))
+
+                mongo.mongodbUpdate([name, age, newName, newBreed, newAge])
+
 
             elif (choise2 == 3):
                 postgre.postgreRead("cat")
@@ -92,7 +105,7 @@ def main():
 
                 newName = input("New name: ")
                 newBreed = input("New breed: ")
-                newAge = input("New age: ")
+                newAge = int(input("New age: "))
 
                 postgre.postgreUpdate("cat", [name, age, newName, newBreed, newAge])
 main()
