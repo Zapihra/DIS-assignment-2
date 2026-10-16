@@ -1,0 +1,40 @@
+[{
+  "_id": {
+    "$oid": "6ad0d5fbc1874a13b9c8dda1"
+  },
+  "name": "Musti",
+  "breed": "Labrador",
+  "age": 5
+},
+{
+  "_id": {
+    "$oid": "6ad0d622c1874a13b9c8dda3"
+  },
+  "name": "Bella",
+  "breed": "Boxer",
+  "age": 2
+},
+{
+  "_id": {
+    "$oid": "6ad0d63fc1874a13b9c8dda5"
+  },
+  "name": "Luna",
+  "breed": "Bordercollie",
+  "age": 7
+},
+{
+  "_id": {
+    "$oid": "6ad0d669c1874a13b9c8dda7"
+  },
+  "name": "Yoda",
+  "breed": "Borderterrier",
+  "age": 1
+},
+{
+  "_id": {
+    "$oid": "6ad21f9d772e2a16c51b6b0f"
+  },
+  "name": "Fifi",
+  "breed": "Pomerian",
+  "age": 9
+}]
