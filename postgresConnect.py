@@ -23,8 +23,9 @@ def fetchInfo(conn, db):
     cursor.execute("SELECT * FROM public." + db + "s")
     
     records = cursor.fetchall()
-    
-    print(records)
+
+    for record in records:
+        print(record)
     cursor.close()
     return
         
